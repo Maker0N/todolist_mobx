@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./header";
-import Task from './task'
+import Todo from './todo'
+import './sass/main.scss'
 
 const App = () => {
   return (
@@ -8,7 +9,7 @@ const App = () => {
       <div>
         <Header />
       </div>
-      <Task />
+      <Todo />
     </div>
   );
 };

@@ -1,0 +1,51 @@
+.todo {
+  display: flex;
+  justify-content: flex-start;
+  background-color: #9ca3af;
+  margin: 5px 50px;
+  padding: 10px 10px 13px 10px;
+  border-radius: 5px;
+}
+
+.doneTodo {
+  display: flex;
+  justify-content: flex-start;
+  background-color: rgb(199, 199, 199);
+  margin: 5px 50px;
+  padding: 10px 10px 13px 10px;
+  border-radius: 5px;
+  color: rgb(122, 122, 122);
+}
+
+.todoText {
+  height: auto;
+  width: 100%;
+}
+
+.todoCheckbox {
+  right: 0px;
+  width: 50px;
+  height: 30px;
+}
+
+.todoButton {
+  right: 0px;
+  width: 50px;
+  height: 30px;
+  margin-top: 3px;
+}
+
+.checkbox {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  border-width: 0px;
+  background-color: #ffffff;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  padding: 0 10px 0 0;
+  width: 200px
+}

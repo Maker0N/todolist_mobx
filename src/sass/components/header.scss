@@ -1,0 +1,40 @@
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.headerTitle {
+  display: flex;
+  justify-content: center;
+  background-color:#9ca3af;
+  width: 100px;
+  padding: 5px;
+  border-radius: 5px 5px 0 0;
+}
+.headerSort {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#9ca3af;
+  width: 300px;
+  padding: 5px;
+  border-radius: 0 0 5px 5px;
+}
+
+.headerInput {
+  display: flex;
+  justify-content: center;
+}
+
+.inputButton {
+  // padding: 5px;
+  background-color: #9ca3af;
+  border-width: 0px;
+  border-radius: 5px;
+  // margin-bottom: 5px;
+  // border-width: 1px;
+  // font-size: 17px;
+  font-family: monospace;
+  outline: none;
+}
