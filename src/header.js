@@ -1,14 +1,9 @@
 import React from "react";
-import { useDispatch, useSelector } from 'react-redux'
-import { sortTodos } from "./redux/todoReducer";
 import Input from "./input";
+import store from "./mobx/store";
 import "./sass/components/header.scss";
 
 const Header = () => {
-  const dispatch = useDispatch()
-  const state = useSelector(s => s.todoReducer)
-  console.log(state.sort)
-
 
   return (
     <header>
@@ -22,12 +17,12 @@ const Header = () => {
       </div>
       <div className="header">
         <div className="headerSort">
-          Сортировать по 
+          Сортировать по
           <button
             className="inputButton"
             onClick={(e) => {
               e.preventDefault();
-              dispatch(sortTodos(false));
+              store.sortTodos(false);
             }}
           >
             :Типу
@@ -36,7 +31,7 @@ const Header = () => {
             className="inputButton"
             onClick={(e) => {
               e.preventDefault();
-              dispatch(sortTodos(true));
+              store.sortTodos(true)
             }}
           >
             :Дате

@@ -1,25 +1,21 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { doneTodo, delTodo } from "./redux/todoReducer";
+import { observer } from 'mobx-react'
+import store from './mobx/store'
 import "./sass/components/todo.scss";
 
-const Todo = () => {
-  const dispatch = useDispatch();
-  const state = useSelector((s) => s.todoReducer);
+const Todo = observer(() => {
   let localTodos = undefined;
-  state.sort
-    ? (localTodos = state.todos)
+  store.sort
+    ? (localTodos = store.todos)
     : (localTodos = [
-        ...state.todos.filter((it) => !it.isDone),
-        ...state.todos.filter((it) => it.isDone),
+        ...store.todos.filter((it) => !it.isDone),
+        ...store.todos.filter((it) => it.isDone),
       ]);
-
-  console.log(state);
 
   return (
     <div>
       {localTodos.map((it, index) => (
-        <div key={index} className={it.isDone ? "doneTodo" : "todo"}>
+        <div key={it.id} className={it.isDone ? "doneTodo" : "todo"}>
           <div className="center">{it.time}</div>
           <div className="todoText">
             <div>{it.todo}</div>
@@ -29,7 +25,7 @@ const Todo = () => {
               type="checkbox"
               className="checkbox"
               checked={it.isDone}
-              onChange={(e) => dispatch(doneTodo(e.target.checked, it.id))}
+              onChange={(e) => store.doneTodo(e.target.checked, it.id)}
             />
           </div>
           <div className="todoButton">
@@ -39,7 +35,7 @@ const Todo = () => {
               value="X"
               onClick={(e) => {
                 e.preventDefault();
-                dispatch(delTodo(it.id));
+                store.delTodo(it.id)
               }}
             />
           </div>
@@ -47,6 +43,6 @@ const Todo = () => {
       ))}
     </div>
   );
-};
+});
 
 export default Todo;

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux'
-import { addTodo } from './redux/todoReducer'
+import { toJS } from 'mobx'
+import { observer } from 'mobx-react'
+import store from './mobx/store'
 import './sass/components/input.scss'
 
-const Input = () => {
-  const dispatch = useDispatch()
+const Input = observer(() => {
   const [todo, setTodo] = useState('')
   const todoTime = () => {
     const date = new Date();
@@ -15,6 +15,8 @@ const Input = () => {
     return setTodo('')
   }
 
+  console.log(toJS(store))
+
   return (
     <div className="inputTitle">
       Моя задача
@@ -22,12 +24,12 @@ const Input = () => {
       <button className='inputButton' type="submit" onClick={(e) => {
         e.preventDefault()
         if (todo) {
-          dispatch(addTodo(todoTime(), todo))
+          store.addTodo(todoTime(), todo);
         }
         clearValue()
       }}>Создать</button>
     </div>
   );
-};
+});
 
 export default Input;
