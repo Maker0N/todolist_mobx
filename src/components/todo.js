@@ -1,7 +1,7 @@
 import React from "react";
 import { observer } from 'mobx-react'
-import store from './mobx/store'
-import "./sass/components/todo.scss";
+import store from '../mobx/store'
+import "../sass/components/todo.scss";
 
 const Todo = observer(() => {
   let localTodos = undefined;
@@ -13,9 +13,9 @@ const Todo = observer(() => {
       ]);
 
   return (
-    <div>
-      {localTodos.map((it, index) => (
-        <div key={it.id} className={it.isDone ? "doneTodo" : "todo"}>
+    <>
+      {localTodos.map((it) => (
+        <article key={it.id} className={it.isDone ? "doneTodo" : "todo"}>
           <div className="center">{it.time}</div>
           <div className="todoText">
             <div>{it.todo}</div>
@@ -39,9 +39,9 @@ const Todo = observer(() => {
               }}
             />
           </div>
-        </div>
+        </article>
       ))}
-    </div>
+    </>
   );
 });
 

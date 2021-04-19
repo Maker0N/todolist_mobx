@@ -1,16 +1,18 @@
 import React from "react";
 import Header from "./header";
 import Todo from './todo'
-import './sass/main.scss'
+import '../sass/main.scss'
 
 const App = () => {
   return (
-    <div >
-      <div>
+    <main>
+      <header>
         <Header />
-      </div>
-      <Todo />
-    </div>
+      </header>
+      <section>
+        <Todo />
+      </section>
+    </main>
   );
 };
 

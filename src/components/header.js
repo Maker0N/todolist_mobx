@@ -1,12 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Input from "./input";
-import store from "./mobx/store";
-import "./sass/components/header.scss";
+import store from "../mobx/store";
+import "../sass/components/header.scss";
 
 const Header = () => {
-
   return (
-    <header>
+    <Fragment>
       <div className="header">
         <div className="headerTitle">Todo List</div>
       </div>
@@ -38,7 +37,7 @@ const Header = () => {
           </button>
         </div>
       </div>
-    </header>
+    </Fragment>
   );
 };
 
